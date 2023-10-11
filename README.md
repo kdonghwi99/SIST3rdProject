@@ -4,7 +4,7 @@
 김나라, 김동휘, 김주영, 오종민, 홍진성 <br>
 <br>
 <hr>
-📓<span><h3>개발스택</h3></span>
+<h3>📓개발스택</h3>
 <img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/>
 <img src="https://img.shields.io/badge/jquery-0769AD?style=flat&logo=jquery&logoColor=white"/>
 <img src="https://img.shields.io/badge/css3-1572B6?style=flat&logo=css3&logoColor=white"/>
