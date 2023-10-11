@@ -3,7 +3,7 @@
 쌍용강북교육센터 final project <br>
 김나라, 김동휘, 김주영, 오종민, 홍진성 <br>
 <br>
-<br>
+<hr>
 개발스택<br>
 <img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/>
 <img src="https://img.shields.io/badge/jquery-0769AD?style=flat&logo=jquery&logoColor=white"/>
