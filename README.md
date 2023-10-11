@@ -5,4 +5,4 @@
 <br>
 <br>
 Used Tools : Git, Github, notion, kakao-oven
-<img src="https://img.shields.io/badge/javascript-#F7DF1E?style=flat&logo=javascript&logoColor=white"/>
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat&logo=javascript&logoColor=white"/>
