@@ -20,7 +20,7 @@ sol) modify에서 view로 넘어갈 때 rvno가 null이 되는 곳을 살펴봤�
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("type", cri.getType());	
 		rttr.addAttribute("keyword", cri.getKeyword());
-		rttr.addAttribute("rvno", rvvo.getRvno());
+		<bold>rttr.addAttribute("rvno", rvvo.getRvno());</bold>
 		// 반환이 void면 /WEB-INF/views/reserv/list.jsp로 이동하는데 jsp로 가면 안되고 맵핑된 list로 가야함
 		return "redirect:/reserv/view";
 		// 얘는 @GetMapping("list")로 이동! -> select된 목록을 갖고 가야하므로 .do로 보내는 것과 동일
@@ -31,3 +31,18 @@ sol) modify에서 view로 넘어갈 때 rvno가 null이 되는 곳을 살펴봤�
  쿼리 스트링 => http://localhost:8090/reserv/listUser?id=test&amount=10&pageNum=1
  에러 메시지 =>  Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: 
  nested exception is org.apache.ibatis.binding.BindingException: Parameter 'amount' not found. Available parameters are [id, cri, param1, param2]
+ 이런 에러 메시지 뜸 -> 구글링에서 @param을 붙이라길래 mapper interface에서 메서드에 @Param("amount") int amount, @Param("pageNum") int pageNum 붙여서 되긴 되는데 끼워맞춘 느낌...
+ sol) log에서 찍힌 결과가 count는 찍히는데 리스트만 안 찍히길래 쿼리문의 문제라고 생각 -> amount와 pageNum 앞에 cri.을 붙이니 성공!
+   <select id="selectAllPagingUser" resultType="org.medipaw.domain.ReservVO">	
+    <![CDATA[
+    SELECT * FROM (
+    SELECT R.RVNO AS RVNO, A.ANIMALHOSP_NAME AS HOSNAME, A.HSOP_ROADNAME_ADDRESS AS HOSADDRESS, A.HSOP_PHONENUM AS HOSPHONE, 
+           R.RVDATE AS RVDATE, R.RVTIME AS RVTIME, ROWNUM AS rn
+    FROM ANIMALHOSP_MAIN A
+    INNER JOIN RESERV R ON A.ANIMALHOSP_NO = R.ANIMALHOSP_NO
+    WHERE R.ID = #{id}
+    ORDER BY R.RVNO DESC
+	)
+	<bold>WHERE rn <= #{cri.amount} * #{cri.pageNum}
+	AND rn > #{cri.amount} * ( #{cri.pageNum} - 1 ) ]]></bold>
+  </select>
