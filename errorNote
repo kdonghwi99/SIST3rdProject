@@ -1,9 +1,9 @@
 
 1. (2023.10.18) 예약 정보 수정 후 view 페이지로 넘어가려는데 쿼리 스트링에 rvno가 뜨지 않고 
 쿼리 스트링 => http://localhost:8090/reserv/view?amount=10&pageNum=5&type=&keyword=
-###에러 메시지 => Request processing failed; nested exception is java.lang.IllegalStateException: 
-###Optional int parameter 'rvno' is present but cannot be translated into a null value due to being declared as a primitive type. 
-###Consider declaring it as object wrapper for the corresponding primitive type.
+### 에러 메시지 => Request processing failed; nested exception is java.lang.IllegalStateException: 
+### Optional int parameter 'rvno' is present but cannot be translated into a null value due to being declared as a primitive type. 
+### Consider declaring it as object wrapper for the corresponding primitive type.
 이런 에러 메시지가 뜸 -> 구글링에서 rvno가 null이라 Integer로 바꿔봤지만 실패!
 sol) modify에서 view로 넘어갈 때 rvno가 null이 되는 곳을 살펴봤는데 컨트롤러에서 cri의 값을 rttr로 보낸게 생각나서 rvno도 추가해봤더니 성공!
 	@PostMapping("modify")
