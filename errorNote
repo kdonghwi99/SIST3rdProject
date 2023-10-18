@@ -28,6 +28,6 @@ sol) modify에서 view로 넘어갈 때 rvno가 null이 되는 곳을 살펴봤�
 
 ---------------------------------------------------------------------------------------------------------------------
  2. (2023.10.18) listUser 불러오는데 amount와 pageNum 바인딩하는 과정에서 에러 발생
-쿼리 스트링 => http://localhost:8090/reserv/listUser?id=test&amount=10&pageNum=1
-에러 메시지 =>  Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: 
-nested exception is org.apache.ibatis.binding.BindingException: Parameter 'amount' not found. Available parameters are [id, cri, param1, param2]
+ 쿼리 스트링 => http://localhost:8090/reserv/listUser?id=test&amount=10&pageNum=1
+ 에러 메시지 =>  Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: 
+ nested exception is org.apache.ibatis.binding.BindingException: Parameter 'amount' not found. Available parameters are [id, cri, param1, param2]
